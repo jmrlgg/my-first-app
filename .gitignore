@@ -4,4 +4,5 @@ myvenv
 db.sqlite3
 /FirstApp/static
 /FirstApp/migrations
+/FirstApp/templates/fragmedia
 .DS_Store
