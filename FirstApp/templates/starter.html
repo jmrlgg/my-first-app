@@ -1,0 +1,230 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{% block title %} {% endblock %}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/5d727ec1b1.js"></script>
+  <style>
+ul.errorlist {
+      margin: 0;
+      padding: 0;
+}
+.errorlist li {
+      background-color: red;
+      color: white;
+      display: block;
+      font-size: 10px;
+      margin: 0 0 3px;
+      padding: 4px 5px;
+}
+.bg-1 {
+    background-color: #1abc9c; /* Green */
+    color: #ffffff;
+}
+.bg-2 {
+    background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+}
+.bg-3 {
+    background-color: #ffffff; /* White */
+    color: #555555;
+}
+.bg-4 {
+    background-color: #cccccc; /* burgandy */
+    color: #ffffff;
+}
+.bg-5 {
+    background-color: rgb(38, 38, 38);
+    color: #ffffff;
+}
+.social {
+  color: #e6e6e6;
+  font-size: 16px;
+}
+.social-hard {
+  color: #a6a6a6;
+  font-size: 10px;
+}
+.login .p {
+  font-size: 12px;
+}
+
+.footer {
+  font-size: 10px;
+  color: black;
+}
+th {
+  font-size: 14px;
+  color: navy;
+}
+</style>
+</head>
+<body>
+  {% load app_extras %}
+
+    <div class="progress">
+        <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+              40% Site Completion
+        </div>
+    </div>
+
+
+{% include './includes/nav.html' %}
+<div class="container-fluid bg-1 text-center">
+  <h3>Who Am I?</h3>
+  <img src="{% static './images/jmrl.png' %}" class="img-circle" alt="Cinque Terre" width="304" height="236">
+  <!-- <h3>I'm an adventurer</h3> -->
+<br><br></div>
+
+<div class="container-fluid bg-2 text-center">
+  <div class="row text-center">
+    <br><h3>What Am I?</h3><br>
+  </div>
+  <div class="row text-center">
+    <div class="col-md-4"><img src="{% static './images/programming_oop.png' %}" class="img-circle" alt="Cinque Terre" width="204" height="136"></div>
+    <div class="col-md-4"><img src="{% static './images/no_bday_just_levelup.jpg' %}" class="img-circle" alt="Cinque Terre" width="204" height="136"></div>
+    <div class="col-md-4"><img src="{% static './images/just_a_geek.jpg' %}" class="img-circle" alt="Cinque Terre" width="204" height="136"></div>
+  </div><br><br>
+
+
+[![forthebadge](http://forthebadge.com/images/badges/uses-badges.svg)](http://forthebadge.com)
+
+
+
+</div>
+
+<div class="container-fluid bg-4 text-center">
+  <h3>Why Am I Here!</h3>
+  <p><blockquote class="text-left"><p>Tutorials, eSports, Videos<footer class="text-justify">With so much that i learn and experince everyday! I thought it would be a great idea to share some of it with the community. I find that I have a few people
+    that communicate with me on a daily basis asking about this and that. Most regarding Photoshop, Dreamweaver, Or Video editing... I will
+    be adding content as I see fit, untill i get a following that can comment and point me in the direction that they'd like to see !!!
+    "</p><br>Comment to reach me!</footer></blockquote></p>
+    <div class="container">
+
+    <!-- <div class="panel panel-default" id="hours_ahead">
+    <div class="panel-body"> -->
+
+      <img class="img-rounded" src="{% static './images/esport_banner.png' %}" alt="Home" width="800" height="56">
+    <br><br><br>
+
+    <!-- </div>
+    </div>
+  </div> -->
+  </div>
+</div>
+
+
+    <div class="container-fluid ">
+
+
+        <div class="row">
+          <div class="col-md-2">
+            <div class="panel panel-default">
+              <div class="panel-heading text-center">
+              {% now "F jS Y H:i" %}</div>
+              <div class="panel-body">
+                <h1><p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p></h1>
+              </div>
+              </div>
+          </div>
+          <div class="col-md-8">
+            <div class="panel panel-default">
+              <div class="panel-heading text-center"><span class="label label-info"> Logged in as, {{ user.username }}</span>  <span class="glyphicon glyphicon-user"></span></div>
+              <div class="panel-body">
+                <h1><p class="lead">{% block content %}
+
+                  <p><h4>
+                    I am going to keep a few of my favorite code examples that
+                   I have learnt along the way while designing this site. I hope you guys find it helpful and keep coming back to gain as much as I love to give!
+                 </h4><pre>
+                     >>> from myapp.models import blog
+                     >>> p1 = blog.object.create(headline='Big Hit!', body_text='This would be your fill for the post on the blog!')
+                     >>> p1
+                     [blog: Big Hit!]
+                     >>> p1.save()
+                   </pre>
+
+                 </p>
+                   {% endblock %}
+              </div>
+              </div>
+          </div>
+          <div class="col-md-2">
+            <div class="panel panel-default">
+              <div class="panel-heading text-center"><button type="button" class="btn btn-primary">Current Page:<span class="badge">{{ request.get_full_path }}</span></button></div>
+              <div class="panel-body">
+
+    <address>
+    <strong>Designed by <a href="mailto:webmaster@example.com">Jeremy Massey</a>.</strong><br>
+    xpcpro.home.nfoservers.com<br>
+    Norfolk, VA<br>
+    USA
+  </address>
+              </div>
+              </div>
+          </div>
+        </div>
+
+  </div><!-- /.container -->
+
+{% include './contact_popup.html' %}
+{% block footer %}
+
+
+<div class="container-fluid bg-5 ">
+  <div class="row">
+  <br><br><br>
+  <div class="col-md-2 text-right">
+    <b class="social text-justify">SOCIALIZE WITH US</b><br>
+    <b class="social-hard">TO STAY IN THE LOOP</b><br>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#contactModal">ContactUS</button>
+  </div>
+  <div class="col-md-2">
+<a href="http://facebook.com/jeremylmassey"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+<a href="http://twitter.com/jmrlgg"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
+<a href="http://steamcommunity.com/id/tehmass"><i class="fa fa-steam-square fa-2x" aria-hidden="true"></i></a>
+<a href="http://youtube.com/lilpimpinbt"><i class="fa fa-youtube-square fa-2x" aria-hidden="true"></i></a>
+<a href="http://twitch.tv/tehmass"><i class="fa fa-twitch fa-2x" aria-hidden="true"></i></a>
+<!-- RAND -->
+  </div>
+  <div class="col-md-4 text-center">
+copyright @jmrlgg & @fragmediagg
+
+  </div>
+  <div class="col-md-4 text-right">
+
+    <address>
+    <strong>Designed by <a href="mailto:webmaster@example.com">Jeremy Massey</a>.</strong><br>
+    xpcpro.home.nfoservers.com<br>
+    Norfolk, VA<br>
+    USA
+  </address>
+  </div>
+  <br><br><br>
+</div>
+</div>
+
+
+
+<!-- <div class="alert alert-success bg-5">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>{% now "F jS Y H:i" %} ||</strong> Thanks for visiting my site.
+
+</div> -->
+
+{% endblock %}
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

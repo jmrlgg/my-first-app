@@ -1,0 +1,5 @@
+{% extends "starter.html" %}
+{% block sec %}
+{% load app_extras %}
+    You are in: {{ request.get_full_path }}
+{% endblock %}

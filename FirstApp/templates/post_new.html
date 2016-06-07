@@ -1,0 +1,14 @@
+
+{% extends "fragmedia/index.htm" %}
+{% load staticfiles %}
+{% load app_extras %}
+{% block news %}
+<div id="news">
+{% for post_list in post_list %}
+	<img src="{% static 'fragmedia/images/esports.jpg' %}" alt="esports" width="300" height="140"> <p color="white" font-size="10" font-family="Verdana">{{ post_list.news }}<br> <br><br><a href="#">Continue Reading...</a><h5>{{ post_list.author }} || {{ post_list.date }} </h5></p>
+	<br><hr />
+{% endfor %}
+</div>		
+{% endblock %}		
+		
+

@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '551603758344185',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+{% load app_extras %}
+<!--
+
+//navigation - {{ my_current11_time }}
+
+{% include './includes/nav.html' %}
+
+    <h1>My helpful timestamp site</h1>
+    {% block content %}{% endblock %}
+    {% block footer %}
+    <hr="3">
+    <p>Thanks for visiting my site. {% now "jS F Y H:i" %}</p>
+    {% endblock %} -->
+    <form id="signupForm" method="post" class="form-horizontal">
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Full name</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" name="firstName" placeholder="First name" />
+            </div>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" name="lastName" placeholder="Last name" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Username</label>
+            <div class="col-xs-5">
+                <input type="text" class="form-control" name="username" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Email address</label>
+            <div class="col-xs-5">
+                <input type="text" class="form-control" name="email" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Password</label>
+            <div class="col-xs-5">
+                <input type="password" class="form-control" name="password" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Gender</label>
+            <div class="col-xs-5">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="gender" value="male" /> Male
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="gender" value="female" /> Female
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="gender" value="other" /> Other
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Bio</label>
+            <div class="col-xs-8">
+                <textarea class="form-control" name="bio" rows="5" style="width: 100%"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-9 col-xs-offset-3">
+                <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Sign up</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Modal for displaying the messages -->
+    <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 class="modal-title">Errors</h5>
+                </div>
+
+                <div class="modal-body">
+                    <!-- The messages container -->
+                    <div id="errors"></div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    $(document).ready(function() {
+        $('#signupForm')
+            .formValidation({
+                framework: 'bootstrap',
+                err: {
+                    container: '#errors'
+                },
+                icon: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+                    firstName: {
+                        row: '.col-xs-4',
+                        validators: {
+                            notEmpty: {
+                                message: 'The first name is required'
+                            }
+                        }
+                    },
+                    lastName: {
+                        row: '.col-xs-4',
+                        validators: {
+                            notEmpty: {
+                                message: 'The last name is required'
+                            }
+                        }
+                    },
+                    username: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The username is required'
+                            },
+                            stringLength: {
+                                min: 6,
+                                max: 30,
+                                message: 'The username must be more than 5 and less than 31 characters long'
+                            },
+                            regexp: {
+                                regexp: /^[a-zA-Z0-9_\.]+$/,
+                                message: 'The username can only consist of alphabetical, number, dot and underscore'
+                            }
+                        }
+                    },
+                    email: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The email address is required'
+                            },
+                            emailAddress: {
+                                message: 'The email address is not valid'
+                            }
+                        }
+                    },
+                    password: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The password is required'
+                            },
+                            different: {
+                                field: 'username',
+                                message: 'The password cannot be the same as username'
+                            }
+                        }
+                    },
+                    gender: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The gender is required'
+                            }
+                        }
+                    },
+                    bio: {
+                        validators: {
+                            stringLength: {
+                                max: 300,
+                                message: 'The bio must be less than 300 characters long'
+                            }
+                        }
+                    }
+                }
+            })
+            .on('err.form.fv', function(e) {
+                // Show the message modal
+                $('#messageModal').modal('show');
+            });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+{% extends "starter.html" %}
+
+{% load app_extras %}
+{% block content %}
+<style type="text/css">
+
+    td {
+      font-size: 10px;
+      color: black;
+    }
+    th {
+      font-size: 14px;
+      color: navy;
+    }
+    .id_headline {
+      font-size: 14px;
+      color: black;
+    }
+</style>
+
+<table class="table">
+
+
+    <thead>
+        <tr>
+            <th>Blog</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+{% for p in post %}
+        <tr>
+          <td>
+          <label for="id_headline">
+            <a href="{% url 'post_detail' pk=p.pk %}">{{ p.headline }}</a>
+          </label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="id_date">
+
+                 {{ p.pub_date }} || {{ p.author }}
+
+            </label>
+          </td>
+
+        </tr>
+
+    <!-- <td>
+            <label for="id_email">Your e-mail address:</label>
+          </td> -->
+          <tr>
+          <td>
+            {{ p.body_text }}
+          </td>
+        </tr>
+
+  {% endfor %}
+</tbody>
+
+</table>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "starter.html" %}
+
+{% load app_extras %}
+   <h2>My New Blog Version 0.0.1</h2>
+
+{% block content %}
+{% for member in post %}
+    {{ member.name }} {{ member.joindate }} {{ member.email }}<br>
+{% endfor %}
+   <hr />
+{% endblock %}
+
+ </body>
+</html>

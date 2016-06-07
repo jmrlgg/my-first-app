@@ -1,0 +1,17 @@
+{% extends "starter.html" %}
+{% load app_extras %}
+{% block content %}
+<!-- {% for result in name.results %}
+  {{ result }}
+{% endfor %} -->
+
+{% ifequal current_section 'hours_ahead' %}
+  <h3> You are in the FUTURE {{ hour_offset }} HOURS!! <h3>
+{% endifequal %}
+
+{% ifequal current_section 'current_datetime' %}
+  <h3> You are in the Present! </h3>
+{% endifequal %}
+
+<p>In {{ hour_offset }} hour(s), it will be {{ next_time }}.</p>
+{% endblock %}

@@ -1,0 +1,57 @@
+#logomash{height:140px;background-color: #751818;}
+#logomash .content{
+width:978px;
+height:100%;
+margin:0 auto;
+display:-webkit-box;
+display:-moz-box;
+display:-ms-box;
+display:-webkit-flex;display:box;display:flex;-webkit-justify-content:space-between;justify-content:space-between;-webkit-box-align:center;-moz-box-align:center;-o-box-align:center;-ms-box-align:center;-webkit-align-items:center;align-items:center}#logomash .content span{margin:0 20px;max-width:110px;min-width:50px}#logomash .content span img{width:100%}@media screen and (max-width: 978px){#logomash{height:80px;background-color:#fff}#logomash .content{width:100%}}@media screen and (max-width: 768px){#logomash{height:120px}#logomash .content{width:100%;-webkit-flex-wrap:wrap;flex-wrap:wrap;-webkit-justify-content:center;justify-content:center}#logomash .content span{max-width:80p
+
+#logomash {
+    height: 140px;
+    background-color: #751818;
+}
+
+#logomash .content {
+    width: 978px;
+    height: 100%;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: -webkit-flex;
+    display: box;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -o-box-align: center;
+    -ms-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+
+
+#logomash .content span {
+    margin: 0 20px;
+    max-width: 110px;
+    min-width: 50px;
+}
+
+
+<div id="logomash">
+	<div class="content">
+		<span><img src="/public/img/homepage/logomash/AFL.png"></span>
+		<span><img src="/public/img/homepage/logomash/Cisco.png"></span>
+		<span><img src="/public/img/homepage/logomash/Eurosport.png"></span>
+		<span><img src="/public/img/homepage/logomash/FedEx.png"></span>
+		<span><img src="/public/img/homepage/logomash/Sundial.png"></span>
+		<span><img src="/public/img/homepage/logomash/UMG.png"></span>
+	</div>
+</div>
